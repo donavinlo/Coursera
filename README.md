@@ -1,7 +1,7 @@
 # Coursera
-Projects/Notes/Assignments from Coursera classes taken
+Projects/Notes/Assignments from Coursera classes taken<br/>
 ##Data Structures and Algorithms<br/>
--**Algorithm Toolbox**
-  -Programming Challenges
-    -Sum of Two Digits
-    -Maximum Pairwise Product
+-**Algorithm Toolbox** <br/>
+  -Programming Challenges <br/>
+    -Sum of Two Digits<br/>
+    -Maximum Pairwise Product<br/>
