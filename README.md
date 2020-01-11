@@ -2,6 +2,6 @@
 Projects/Notes/Assignments from Coursera classes taken<br/>
 <br/>
 ##Data Structures and Algorithms<br/>
-***Algorithm Toolbox** 
-*Sum of Two Digits
-*Maximum Pairwise Product
+1. Algorithm Toolbox** 
+2.Sum of Two Digits
+3. Maximum Pairwise Product
