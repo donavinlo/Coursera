@@ -24,15 +24,6 @@ def get_optimal_value(capacity, weights, indvalues):
             break
     return totvalue
 
-# def max_ind(val, weight):
-#     ind = 0
-#     max = 0
-#     for i in range(n):
-#         if weight[i] > 0 and (val[i] / weight[i]) > max:
-#             max = values[i] / weights[i]
-#             ind = i
-#     return ind
-
 if __name__ == "__main__":
     data = [int(x.strip()) for line in sys.stdin.readlines() for x in line.split()]
     n, capacity = data[0:2]
