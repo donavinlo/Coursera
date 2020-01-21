@@ -1,6 +1,6 @@
 # Uses python3
 import sys
-
+# given m find how to make get change with the minimum number of coins 
 def get_change(m):
     coins = [1,3,4]
     if T[m] != 0:
