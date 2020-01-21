@@ -1,6 +1,7 @@
 # Uses python3
 import sys
 
+#using x * 2, x * 3, and  x + 1 find the minimum number of operations to reach n
 def optimal_sequence(n):
     arr = [0] * (n + 1)
     sequence = []
