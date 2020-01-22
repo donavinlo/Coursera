@@ -1,37 +1,23 @@
 # Uses python3
 import sys
 
-def optimal_weight(capacity, weights, i, pack = None):
-    if pack is None:
-        pack = {}
-    if (capacity,i) not in pack:
-        if capacity == 0 and i == 0:
-            return True
-        elif capacity > 0 and i == 0:
-            return False
-        elif i > 0 and weights[i-1] > capacity:
-            pack[(capacity,i)] = optimal_weight(capacity, weights, i, pack)
-        else:
-            pack[(capacity,i)] = optimal_weight(capacity, weights, i-1, pack)  or \
-            optimal_weight(capacity - weights[i-1], weights, i-1, pack)
-    return pack[(capacity,i)]
+#You are given a set of bars of gold and your goal is to take as much gold as possible into
+#your bag. There is just one copy of each bar and for each bar you can either take it or not
+#(hence you cannot take a fraction of a bar).
 
-def optimal_weight2(capacity, weights, pack = None):
-    if pack is None:
-        pack = {}
-    if capacity not in pack:
-        if capacity == 0 and i == 0:
-            return True
-        elif capacity > 0 and i == 0:
-            return False
-        elif i > 0 and weights[i-1] > capacity:
-            pack[(capacity,i)] = optimal_weight(capacity, weights, i, pack)
-        else:
-            pack[capacity] = optimal_weight(capacity, weights, pack)  or \
-            optimal_weight(capacity - weights[i-1], weights,  pack)
-    return pack[capacity]
+def optimal_weight(capacity, weights, i, T = {}):
+   if (capacity, i) not in T:
+       if i == 0:
+           T[capacity, i] = 0
+       else:
+           T[capacity, i] = optimal_weight(capacity, weights,i-1)
+           if capacity >= weights[i-1]:
+               T[capacity, i] = max(T[capacity, i],
+                                    optimal_weight(capacity - weights[i-1], weights, i-1) + weights[i-1])
+   return T[capacity,i]
+
 
 if __name__ == '__main__':
     input = sys.stdin.read()
     W, n, *w = list(map(int, input.split()))
-    print(optimal_weight(W, w, n))
+    print(optimal_weight(W, w, n, {}))
