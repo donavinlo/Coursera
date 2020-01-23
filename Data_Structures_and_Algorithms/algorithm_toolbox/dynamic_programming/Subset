@@ -1,0 +1,38 @@
+# Uses python3
+import sys
+import itertools
+
+##Final look
+def Partition8(arr, k=3):
+    totalsum = sum(arr)
+    if totalsum % 3 != 0 or k ==0:
+        return False
+    return canPartition8(iterationStart=0, arr=arr, K=k, inProgressBucketSum=0, targetBucketSum=(totalsum//3))
+
+def canPartition8(iterationStart, arr, K, inProgressBucketSum, targetBucketSum, used = {}):
+    if K == 1:
+        return True
+    if inProgressBucketSum == targetBucketSum:
+        return canPartition8(0, arr, K = K-1, inProgressBucketSum=0, targetBucketSum=targetBucketSum, used = used)
+    for i in range(iterationStart, len(arr)):
+        if i not in used:
+            used[i] = True
+            if canPartition8(iterationStart=i +1, arr = arr, used=used, K=K,
+                             inProgressBucketSum = inProgressBucketSum + arr[i], targetBucketSum=targetBucketSum):
+                return True
+            used[i] = False
+    return False
+
+def Partition9(arr, vals={}):
+    if sum(arr) % 3 == 0:
+        s1 = sum(arr) / 3
+        s2 = sum(arr) / 3
+        s3 = sum(arr) / 3
+    else:
+        return False
+    
+    
+if __name__ == '__main__':
+    input = sys.stdin.read()
+    n, *A = list(map(int, input.split()))
+    print(Partition8(A))
