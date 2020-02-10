@@ -1,4 +1,5 @@
 # python3
+# Hash Table Project
 import sys
 class Query:
     def __init__(self, query):
