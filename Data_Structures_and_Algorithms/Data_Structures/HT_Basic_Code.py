@@ -1,4 +1,5 @@
 #python 3
+#HashTable
 
 class HashTable:
     def __init__(self, size = 0):
